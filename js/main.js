@@ -27,16 +27,21 @@ function mostrarJuegos(lista) {
     });
 }
 
+
 function agregarFavorito(id) {
     const juego = juegos.find(j => j.id === id);
 
     if (!app.favoritos.includes(juego)) {
         app.favoritos.push(juego);
         alert(juego.nombre + " agregado a favoritos 🎮");
+
+        mostrarFavoritos();
+
     } else {
         alert("Ya está en favoritos ❌");
     }
 }
+
 
 const buscador = document.querySelector("#buscador");
 
@@ -51,3 +56,21 @@ buscador.addEventListener("input", () => {
 });
 
 mostrarJuegos(juegos);
+
+
+const contenedorFavoritos = document.querySelector("#lista-favoritos");
+``
+
+function mostrarFavoritos() {
+    contenedorFavoritos.innerHTML = "";
+
+    app.favoritos.forEach(juego => {
+        contenedorFavoritos.innerHTML += `
+            <div class="juego">
+                <img src="${juego.imagen}" alt="${juego.nombre}">
+                <h3>${juego.nombre}</h3>
+            </div>
+        `;
+    });
+}
+``
