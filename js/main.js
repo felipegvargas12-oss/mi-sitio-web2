@@ -74,3 +74,17 @@ function mostrarFavoritos() {
     });
 }
 ``
+
+const buscador = document.querySelector("#buscador");
+
+buscador.addEventListener("input", () => {
+
+    const texto = buscador.value.toLowerCase();
+
+    const filtrados = juegos.filter(juego => 
+        juego.nombre.toLowerCase().includes(texto)
+    );
+
+    mostrarJuegos(filtrados);
+});
+
