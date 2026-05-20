@@ -1,3 +1,4 @@
+// ✅ DATOS
 const juegos = [
     { id: 1, nombre: "GTA VI", categoria: "Acción", imagen: "images/juego1.jpg" },
     { id: 2, nombre: "FIFA 26", categoria: "Deportes", imagen: "images/juego2.jpg" },
@@ -9,8 +10,12 @@ const app = {
     favoritos: []
 };
 
+// ✅ SELECTORES
 const contenedor = document.querySelector("#lista-juegos");
+const contenedorFavoritos = document.querySelector("#lista-favoritos");
+const buscador = document.querySelector("#buscador");
 
+// ✅ RENDER JUEGOS
 function mostrarJuegos(lista) {
     contenedor.innerHTML = "";
 
@@ -27,40 +32,21 @@ function mostrarJuegos(lista) {
     });
 }
 
-
+// ✅ AGREGAR FAVORITO
 function agregarFavorito(id) {
     const juego = juegos.find(j => j.id === id);
 
-    if (!app.favoritos.includes(juego)) {
+    if (!juego) return;
+
+    if (!app.favoritos.some(fav => fav.id === juego.id)) {
         app.favoritos.push(juego);
-        alert(juego.nombre + " agregado a favoritos 🎮");
-
         mostrarFavoritos();
-
     } else {
         alert("Ya está en favoritos ❌");
     }
 }
 
-
-const buscador = document.querySelector("#buscador");
-
-buscador.addEventListener("input", () => {
-    const texto = buscador.value.toLowerCase();
-
-    const filtrados = juegos.filter(juego =>
-        juego.nombre.toLowerCase().includes(texto)
-    );
-
-    mostrarJuegos(filtrados);
-});
-
-mostrarJuegos(juegos);
-
-
-const contenedorFavoritos = document.querySelector("#lista-favoritos");
-``
-
+// ✅ MOSTRAR FAVORITOS
 function mostrarFavoritos() {
     contenedorFavoritos.innerHTML = "";
 
@@ -73,18 +59,17 @@ function mostrarFavoritos() {
         `;
     });
 }
-``
 
-const buscador = document.querySelector("#buscador");
-
+// ✅ BUSCADOR
 buscador.addEventListener("input", () => {
-
     const texto = buscador.value.toLowerCase();
 
-    const filtrados = juegos.filter(juego => 
+    const filtrados = juegos.filter(juego =>
         juego.nombre.toLowerCase().includes(texto)
     );
 
     mostrarJuegos(filtrados);
 });
 
+// ✅ INICIAR
+mostrarJuegos(juegos);
