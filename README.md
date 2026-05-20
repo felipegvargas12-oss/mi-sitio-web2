@@ -24,3 +24,6 @@ Página web sobre videojuegos que muestra juegos populares, noticias y un formul
 
 4. "Formulario HTML5 simple"
    → Para crear la sección de contacto.
+   
+5. "Diseño de la pagina web moderno con colores parecidos a la pagina de Steam"
+   → Para editar el diseño completo de la pagina web y hacerlo más comoda a la vista del usuario.
