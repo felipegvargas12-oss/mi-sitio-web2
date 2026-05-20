@@ -1,4 +1,4 @@
-# Gaming World
+# World of Gaming
 
 ## Descripción
 Página web sobre videojuegos que muestra juegos populares, noticias y un formulario de contacto.
