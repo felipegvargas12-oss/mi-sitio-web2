@@ -1,4 +1,3 @@
-// ✅ Arreglo con imágenes incluidas (adaptado a tu diseño)
 const juegos = [
     { id: 1, nombre: "GTA VI", categoria: "Acción", imagen: "images/juego1.jpg" },
     { id: 2, nombre: "FIFA 26", categoria: "Deportes", imagen: "images/juego2.jpg" },
@@ -6,15 +5,12 @@ const juegos = [
     { id: 4, nombre: "Elden Ring", categoria: "RPG", imagen: "images/juego4.jpg" }
 ];
 
-// ✅ Objeto para favoritos
 const app = {
     favoritos: []
 };
 
-// ✅ Seleccionamos contenedor (usa TU diseño)
 const contenedor = document.querySelector("#lista-juegos");
 
-// ✅ FUNCIÓN PRINCIPAL (render dinámico)
 function mostrarJuegos(lista) {
     contenedor.innerHTML = "";
 
@@ -31,7 +27,6 @@ function mostrarJuegos(lista) {
     });
 }
 
-// ✅ FAVORITOS (if obligatorio)
 function agregarFavorito(id) {
     const juego = juegos.find(j => j.id === id);
 
@@ -43,7 +38,6 @@ function agregarFavorito(id) {
     }
 }
 
-// ✅ BUSCADOR dinámico
 const buscador = document.querySelector("#buscador");
 
 buscador.addEventListener("input", () => {
@@ -56,5 +50,4 @@ buscador.addEventListener("input", () => {
     mostrarJuegos(filtrados);
 });
 
-// ✅ Ejecutar al cargar
 mostrarJuegos(juegos);
